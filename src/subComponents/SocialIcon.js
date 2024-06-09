@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Facebook, Github, Twitter, YouTube } from '../components/AllSvgs';
 import styled from 'styled-components';
+import { darkTheme } from '../components/Themes';
 
 const Icons = styled.div`
 	display: flex;
@@ -9,7 +10,7 @@ const Icons = styled.div`
 	align-items: center;
 	position: fixed;
 	bottom: 0;
-	left: 2rem;
+	left: calc(1rem + 2vw);
 	z-index: 3;
 	& > *:not(:last-child) {
 		margin: 0.5rem 0;
@@ -19,10 +20,11 @@ const Icons = styled.div`
 const Line = styled.span`
 	width: 2px;
 	height: 8rem;
-	background-color: ${(props) => props.theme.text};
+	background-color: ${(props) =>
+		props.color === 'dark' ? darkTheme.text : darkTheme.body};
 `;
 
-const SocialIcon = () => {
+const SocialIcon = (props) => {
 	return (
 		<Icons>
 			<div>
@@ -31,7 +33,11 @@ const SocialIcon = () => {
 					target="_blank"
 					to="https://github.com/minhynguyen2464"
 				>
-					<Github width={25} height={25} fill="currentColor"></Github>
+					<Github
+						width={25}
+						height={25}
+						fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
+					></Github>
 				</NavLink>
 			</div>
 			<div>
@@ -40,7 +46,11 @@ const SocialIcon = () => {
 					target="_blank"
 					to="https://github.com/minhynguyen2464"
 				>
-					<Twitter width={25} height={25} fill="currentColor"></Twitter>
+					<Twitter
+						width={25}
+						height={25}
+						fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
+					></Twitter>
 				</NavLink>
 			</div>
 			<div>
@@ -49,7 +59,11 @@ const SocialIcon = () => {
 					target="_blank"
 					to="https://github.com/minhynguyen2464"
 				>
-					<Facebook width={25} height={25} fill="currentColor"></Facebook>
+					<Facebook
+						width={25}
+						height={25}
+						fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
+					></Facebook>
 				</NavLink>
 			</div>
 			<div>
@@ -58,10 +72,14 @@ const SocialIcon = () => {
 					target="_blank"
 					to="https://github.com/minhynguyen2464"
 				>
-					<YouTube width={25} height={25} fill="currentColor"></YouTube>
+					<YouTube
+						width={25}
+						height={25}
+						fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
+					></YouTube>
 				</NavLink>
 			</div>
-			<Line />
+			<Line color={props.theme} />
 		</Icons>
 	);
 };
