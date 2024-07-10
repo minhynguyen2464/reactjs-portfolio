@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { Facebook, Github, Twitter, YouTube } from '../components/AllSvgs';
 import styled from 'styled-components';
 import { darkTheme } from '../components/Themes';
+import { motion } from 'framer-motion';
 
-const Icons = styled.div`
+const Icons = styled(motion.div)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -17,17 +18,33 @@ const Icons = styled.div`
 	}
 `;
 
-const Line = styled.span`
+const Line = styled(motion.span)`
 	width: 2px;
 	height: 8rem;
 	background-color: ${(props) =>
 		props.color === 'dark' ? darkTheme.text : darkTheme.body};
 `;
 
+//Config
+const Item = {
+	hidden: {
+		scale: 0,
+	},
+	show: {
+		scale: 1,
+		transition: {
+			type: 'spring',
+			duration: 0.5,
+			damping: 5,
+			delay: 1,
+		},
+	},
+};
+
 const SocialIcon = (props) => {
 	return (
 		<Icons>
-			<div>
+			<motion.div variants={Item} initial="hidden" animate="show">
 				<NavLink
 					style={{ color: 'inherit' }}
 					target="_blank"
@@ -39,8 +56,8 @@ const SocialIcon = (props) => {
 						fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
 					></Github>
 				</NavLink>
-			</div>
-			<div>
+			</motion.div>
+			<motion.div variants={Item} initial="hidden" animate="show">
 				<NavLink
 					style={{ color: 'inherit' }}
 					target="_blank"
@@ -52,8 +69,8 @@ const SocialIcon = (props) => {
 						fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
 					></Twitter>
 				</NavLink>
-			</div>
-			<div>
+			</motion.div>
+			<motion.div variants={Item} initial="hidden" animate="show">
 				<NavLink
 					style={{ color: 'inherit' }}
 					target="_blank"
@@ -65,8 +82,8 @@ const SocialIcon = (props) => {
 						fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
 					></Facebook>
 				</NavLink>
-			</div>
-			<div>
+			</motion.div>
+			<motion.div variants={Item} initial="hidden" animate="show">
 				<NavLink
 					style={{ color: 'inherit' }}
 					target="_blank"
@@ -78,8 +95,17 @@ const SocialIcon = (props) => {
 						fill={props.theme === 'dark' ? darkTheme.text : darkTheme.body}
 					></YouTube>
 				</NavLink>
-			</div>
-			<Line color={props.theme} />
+			</motion.div>
+			<Line
+				color={props.theme}
+				initial={{ y: 200 }}
+				animate={{ y: 0 }}
+				transition={{
+					type: 'spring',
+					duration: 1,
+					delay: 1,
+				}}
+			/>
 		</Icons>
 	);
 };

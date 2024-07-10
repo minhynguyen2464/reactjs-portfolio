@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { darkTheme } from '../components/Themes';
+import { motion } from 'framer-motion';
 
-const Logo = styled.h1`
+const Logo = styled(motion.h1)`
 	display: inline-block;
 	color: ${(props) =>
 		props.color === 'dark' ? darkTheme.text : darkTheme.body};
@@ -14,8 +15,23 @@ const Logo = styled.h1`
 	z-index: 3;
 `;
 
+const Item = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.5,
+			duration: 0.5,
+		},
+	},
+};
+
 const LogoComponent = (props) => {
-	return <Logo color={props.theme}>Shun</Logo>;
+	return (
+		<Logo color={props.theme} variants={Item} initial="hidden" animate="show">
+			Shun
+		</Logo>
+	);
 };
 
 export default LogoComponent;

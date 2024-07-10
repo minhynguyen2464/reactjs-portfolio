@@ -146,28 +146,78 @@ const Main = () => {
 					<span>Click Here</span>
 				</Center>
 				<Contact target="_blank" to="mailto:minhynguyen97@gmail.com">
-					<motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+					<motion.h2
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						initial={{ y: -200 }}
+						animate={{ y: 0 }}
+						transition={{
+							type: 'spring',
+							duration: 1,
+							delay: 1,
+						}}
+					>
 						Say hi..
 					</motion.h2>
 				</Contact>
 				<BLOG to="/blog">
-					<motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+					<motion.h2
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						initial={{ y: -200 }}
+						animate={{ y: 0 }}
+						transition={{
+							type: 'spring',
+							duration: 1,
+							delay: 1,
+						}}
+					>
 						Blog
 					</motion.h2>
 				</BLOG>
 				<WORK to="/work" click={click}>
-					<motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+					<motion.h2
+						whileHover={{ scale: 1.1 }}
+						whileTap={{ scale: 0.9 }}
+						initial={{ y: -200 }}
+						animate={{ y: 0 }}
+						transition={{
+							type: 'spring',
+							duration: 1,
+							delay: 1,
+						}}
+					>
 						Work
 					</motion.h2>
 				</WORK>
 				<BottomBar>
 					<ABOUT to="/about" click={click}>
-						<motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+						<motion.h2
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.9 }}
+							initial={{ y: 200 }}
+							animate={{ y: 0 }}
+							transition={{
+								type: 'spring',
+								duration: 1,
+								delay: 1,
+							}}
+						>
 							About.
 						</motion.h2>
 					</ABOUT>
 					<SKILLS to="/skills">
-						<motion.h2 whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+						<motion.h2
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.9 }}
+							initial={{ y: 200 }}
+							animate={{ y: 0 }}
+							transition={{
+								type: 'spring',
+								duration: 1,
+								delay: 1,
+							}}
+						>
 							My Skills.
 						</motion.h2>
 					</SKILLS>

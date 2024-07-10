@@ -6,6 +6,8 @@ import SocialIcon from '../subComponents/SocialIcon';
 import PowerButton from '../subComponents/powerButton';
 import ParticleComponent from '../subComponents/ParticleComponent';
 import astronaut from '../assets/Images/spaceman.png';
+import BigTitle from '../subComponents/BigTitle';
+import { motion } from 'framer-motion';
 
 const Box = styled.div`
 	background-color: ${(props) => props.theme.body};
@@ -21,7 +23,7 @@ const float = keyframes`
 	100% {transform: translateY(-15px)};
 `;
 
-const Spaceman = styled.div`
+const Spaceman = styled(motion.div)`
 	position: absolute;
 	top: 10%;
 	right: 5%;
@@ -33,7 +35,7 @@ const Spaceman = styled.div`
 	}
 `;
 
-const Main = styled.div`
+const Main = styled(motion.div)`
 	border: 2px solid ${(props) => props.theme.text};
 	color: ${(props) => props.theme.text};
 	padding: 2rem;
@@ -52,6 +54,35 @@ const Main = styled.div`
 	font-family: 'Ubuntu Mono', monospace;
 `;
 
+//Config
+const SpaceManAnimation = {
+	hidden: {
+		top: 400,
+		right: -200,
+	},
+	show: {
+		top: 60,
+		right: 80,
+		transition: {
+			type: 'spring',
+			duration: 3,
+		},
+	},
+};
+
+//Config
+const MainAnimation = {
+	hidden: {
+		opacity: 0,
+	},
+	show: {
+		opacity: 1,
+		transition: {
+			type: 'spring',
+			duration: 3,
+		},
+	},
+};
 const MySkillsPage = () => {
 	return (
 		<ThemeProvider theme={darkTheme}>
@@ -60,10 +91,10 @@ const MySkillsPage = () => {
 				<PowerButton />
 				<SocialIcon theme="dark" />
 				<ParticleComponent theme="dark" />
-				<Spaceman>
+				<Spaceman variants={SpaceManAnimation} initial="hidden" animate="show">
 					<img src={astronaut} alt="spaceman"></img>
 				</Spaceman>
-				<Main>
+				<Main variants={MainAnimation} initial="hidden" animate="show">
 					I'm a front-end developer located in Vietnam. I love to create simple
 					yet beautiful websites with great user experience.
 					<br />
@@ -75,6 +106,7 @@ const MySkillsPage = () => {
 					Art when you put your consciousness in it. You can connect with me via
 					social links.
 				</Main>
+				<BigTitle text="ABOUT" top="10%" left="5%" />
 			</Box>
 		</ThemeProvider>
 	);

@@ -1,6 +1,11 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+
+const Container = styled(motion.div)`
+	display: flex;
+`;
 
 const Box = styled(NavLink)`
 	width: calc(10rem + 15vw);
@@ -60,19 +65,35 @@ const Date = styled.span`
 	padding: 0.5rem 0;
 `;
 
+//Config
+const Item = {
+	hidden: {
+		scale: 0,
+	},
+	show: {
+		scale: 1,
+		transition: {
+			type: 'spring',
+			duration: 0.5,
+		},
+	},
+};
+
 const BlogComponents = (props) => {
 	const { name, tags, date, imgSrc, link } = props.blog;
 	return (
-		<Box target="_blank" to={link}>
-			<Image img={imgSrc} />
-			<Title>{name}</Title>
-			<HashTags>
-				{tags.map((t, id) => {
-					return <Tag key={id}> #{t}</Tag>;
-				})}
-			</HashTags>
-			<Date>{date}</Date>
-		</Box>
+		<Container variants={Item}>
+			<Box target="_blank" to={link}>
+				<Image img={imgSrc} />
+				<Title>{name}</Title>
+				<HashTags>
+					{tags.map((t, id) => {
+						return <Tag key={id}> #{t}</Tag>;
+					})}
+				</HashTags>
+				<Date>{date}</Date>
+			</Box>
+		</Container>
 	);
 };
 
