@@ -153,6 +153,7 @@ const Main = () => {
 						animate={{ y: 0 }}
 						transition={{
 							type: 'spring',
+							damping: 10,
 							duration: 1,
 							delay: 1,
 						}}
@@ -168,6 +169,7 @@ const Main = () => {
 						animate={{ y: 0 }}
 						transition={{
 							type: 'spring',
+							damping: 10,
 							duration: 1,
 							delay: 1,
 						}}
@@ -183,6 +185,7 @@ const Main = () => {
 						animate={{ y: 0 }}
 						transition={{
 							type: 'spring',
+							damping: 10,
 							duration: 1,
 							delay: 1,
 						}}
@@ -199,6 +202,7 @@ const Main = () => {
 							animate={{ y: 0 }}
 							transition={{
 								type: 'spring',
+								damping: 10,
 								duration: 1,
 								delay: 1,
 							}}
@@ -214,6 +218,7 @@ const Main = () => {
 							animate={{ y: 0 }}
 							transition={{
 								type: 'spring',
+								damping: 10,
 								duration: 1,
 								delay: 1,
 							}}

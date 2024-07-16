@@ -80,23 +80,20 @@ const MySkillsPage = () => {
 				<ParticleComponent theme="light" />
 				<Main>
 					<Title>
-						<Design width={40} height={40} /> Designer
+						<Design width={40} height={40} /> Backend Developer
 					</Title>
 					<Description>
-						I love to create design which speaks, Keep it clean, minimal and
-						simple.
+						My expertise lies in designing and implementing scalable and
+						efficient backend systems
 					</Description>
 					<Description>
-						<strong>I LIKE TO DESIGN</strong>
-						<ul>
-							<li>Web Design</li>
-							<li>Mobile Apps</li>
-						</ul>
+						<strong>SKILLS</strong>
+						<p>NodeJS, PHP, EJS, Axios, Java, SQL, MySQL, MongoDB</p>
 					</Description>
 					<Description>
 						<strong>Tools</strong>
 						<ul>
-							<li>Figma</li>
+							<li>Postman, Git</li>
 						</ul>
 					</Description>
 				</Main>
@@ -110,10 +107,7 @@ const MySkillsPage = () => {
 					</Description>
 					<Description>
 						<strong>SKILLS</strong>
-						<p>
-							Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind, Firebase
-							etc.
-						</p>
+						<p>HTML, CSS, Javascript, React, Bootstrap, Firebase.</p>
 					</Description>
 					<Description>
 						<strong>Tools</strong>
